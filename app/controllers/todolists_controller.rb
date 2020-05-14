@@ -9,7 +9,7 @@ class TodolistsController < ApplicationController
 
   	list.save
 
-  	redirect_to '/top'
+  	redirect_to todolist_path(list.id)
   end
 
   def index
@@ -23,6 +23,6 @@ class TodolistsController < ApplicationController
   private
 
   def list_params
-      params.recquire(:list).permit(:totle, :body)
+  	  params.require(:list).permit(:title, :body)
   end 
 end
