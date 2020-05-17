@@ -27,6 +27,12 @@ class TodolistsController < ApplicationController
       redirect_to todolist_path(list.id)
   end
 
+  def destroy
+      list = List.find(params[:id]) #データ（れこーど）を１件取得
+      list.destroy #データ（レコード）を削除
+      ct_to todolists_path #List１覧画面へリダイレクト
+  end
+
   private
 
   def list_params
